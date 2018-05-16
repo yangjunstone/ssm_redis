@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="com.zh.dao.TeacherDao">
+ 	<select id="queryTeacherByTeacher" parameterType="com.zh.vo.Teacher" resultType="com.zh.vo.Teacher">
+ 		select * from teacher where teacher_name=#{teacher.teacher_name} and teacher_pwd=#{teacher.teacher_pwd}
+ 	</select>
+ 	<select id="queryAllTeachers" resultType="com.zh.vo.Teacher">
+ 		select * from teacher
+ 	</select>
+  	<select id="addTeacher" parameterType="com.zh.vo.Teacher" resultType="java.lang.String">
+ 		insert into teacher values(null, #{teacher.teacher_name}, #{teacher.teacher_pwd}, #{teacher.college_id});
+ 	</select>
+ </mapper>
